@@ -1,8 +1,8 @@
 <template>
   <div class="calendar-root">
     <div class="input-date" @click="toggleCalendar()">
-      {{presetActive}} : {{getDateString(dateRange.start)}} - {{getDateString(dateRange.end)}}
-      <span v-if="!dateRange.start && dateRange.end"> Select Date Range </span>
+      <span v-if="!dateRange.start && !dateRange.end"> Select Date Range </span>
+      <span v-else> {{presetActive}} : {{getDateString(dateRange.start)}} - {{getDateString(dateRange.end)}} </span>
     </div>
     <div class="calendar" :class="{'calendar-mobile ': isCompact, 'calendar-right-to-left': isRighttoLeft}" v-if="isOpen">
       <div class="calendar-head" v-if="!isCompact">
